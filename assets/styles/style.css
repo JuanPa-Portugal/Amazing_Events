@@ -93,3 +93,17 @@ footer{
 tbody th{
   font-weight: 400;
 }
+
+/* details section */
+.custom_deatils{
+  box-shadow: 0 4px 8px 0 rgb(20, 20, 20), 0 6px 20px 0 rgba(0,0,0,0.19);
+  gap:1rem;
+}
+.custom_details__img{
+  max-width: 50%;
+  height: 50%;
+}
+.custom_details__img img{
+  max-width: 100%;
+  margin-right: 10px;
+}
