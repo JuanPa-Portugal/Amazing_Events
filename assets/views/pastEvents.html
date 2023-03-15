@@ -5,21 +5,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  <link rel="shortcut icon" href="./assets/img/Logo_Amazing_Events.png" type="image/x-icon">
-  <link rel="stylesheet" href="https://kit.fontawesome.com/3d09fa9176.css" crossorigin="anonymous">
+  <link rel="shortcut icon" href="../img/Logo_Amazing_Events.png" type="image/x-icon">
   <link rel="stylesheet" href="../styles/style.css">
-  <title>details</title>
+  <title>past</title>
 </head>
 <body>
+<!-- BRANDING NAV ITEMS -->
   <header class="container">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/"><img width="120" src="../img/Logo_Amazing_Events.png" alt="logotipo_Amazing_Events"></a>
+        <a class="navbar-brand" href="/"><img width="120" src="../img/Logo_Amazing_Events.png" alt=""></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
-        <!-- NAV ITEMS -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
@@ -29,7 +27,7 @@
               <a class="nav-link" href="./UpcomingEvents.html"> upcoming events</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="./past.html">past events</a>
+              <a class="nav-link active" aria-current="page" href="#">past events</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="./contact.html">contact</a>
@@ -42,21 +40,55 @@
       </div>
     </nav>
   </header>
+<!-- / BRANDING NAV ITEMS -->
   <main>
-    <section class="container custom_deatils">
-      <div class="d-flex flex-wrap">
-        <div class="custom_details__img">
-          <img src="../img/Cinema.jpg" alt="">
+    <div class=" container mt-3 mb-5">
+      <form >
+        <div class="row">
+          <div class="col-12 col-md-6 col-sm-12">
+            <div class="d-flex gap-1 flex-wrap mb-2">
+              <div>
+                <input class="ms-2" type="checkbox" name="checkbox" id="check1">
+                <label  for="check1">Category</label>
+              </div>
+              <div>
+                <input class="ms-2" type="checkbox" name="checkbox" id="check2">
+                <label for="check2">Category</label>
+              </div>
+              <div>
+                <input class="ms-2" type="checkbox" name="checkbox" id="check3">
+                <label for="check3">Category</label>
+              </div>
+              <div>
+                <input class="ms-2" type="checkbox" name="checkbox" id="check4">
+                <label for="check4">Category</label>
+              </div>
+              <div>
+                <input class="ms-2" type="checkbox" name="checkbox" id="check5">
+                <label for="check5">Category</label>
+              </div>
+            </div>             
+          </div>
+          <div class="col-12 col-md-6 col-sm-12 ">
+            <input type="text">
+            <button type="button">search
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+          </div>
         </div>
-        <div class="">
-          <h3> subtitle</h3>
-          <p> paragraph 1</p>
-          <p>paragraph 2</p>
-        </div>
+      </form>          
+    </div>
+
+<!-- SECTION CARDS -->
+    <section class="container mt-5">
+      <div class="row" id="cardPastEvents">
+        
       </div>
     </section>
-
+<!-- /SECTION CARDS -->
   </main>
+
+
   <footer class="container d-flex justify-content-lg-between">
     <div class="d-flex gap-4">
       <i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
@@ -67,9 +99,11 @@
       <p>cohort</p>
     </div>
   </footer>
-  
 
-  <script src="https://kit.fontawesome.com/3d09fa9176.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/3d09fa9176.js" crossorigin="anonymous"></script>
+
+ 
+  <script src="../js/pastEvents.js"></script>
 </body>
 </html>

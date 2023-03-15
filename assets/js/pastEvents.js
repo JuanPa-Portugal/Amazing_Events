@@ -1,4 +1,5 @@
-/* var data = {
+
+var data = {
   "currentDate": "2022-01-01"
 };
 
@@ -13,7 +14,8 @@ const events=[
     "place":"Room A",
     "capacity":45000,
     "assistance":42756,
-    "price":5
+    "price":5,
+    "detail":"collectivitiesParty.html"
   },
   {
     _id: 2,
@@ -25,7 +27,8 @@ const events=[
     "place":"Room A",
     "capacity":45000,
     "assistance":42756,
-    "price":10
+    "price":10,
+    "detail":"koreanStyle.html"
   },
   {
     _id: 3,
@@ -37,7 +40,8 @@ const events=[
     "place":"Field",
     "capacity":82000,
     "assistance":65892,
-    "price":15
+    "price":15,
+    "detail":"jurassicpark.html"
   },
   {
     _id: 4,
@@ -49,7 +53,8 @@ const events=[
     "place":"Paris",
     "capacity":8200,
     "estimate":8200,
-    "price":3500
+    "price":3500,
+    "detail":"parisianMuseum.html"
   },
   {
     _id: 5,
@@ -61,7 +66,8 @@ const events=[
     "place":"Room C",
     "capacity":120000,
     "assistance":110000,
-    "price":54
+    "price":54,
+    "detail":"comicon.html"
   },
   {
     _id: 6,
@@ -73,7 +79,8 @@ const events=[
     "place":"Room C",
     "capacity":12000,
     "estimate":9000,
-    "price":12
+    "price":12,
+    "detail":"halloweenNight.html"
   },
   {
     _id: 7,
@@ -85,7 +92,8 @@ const events=[
     "place":"Room A"
     ,"capacity":138000,
     "estimate":138000,
-    "price":150
+    "price":150,
+    "detail":"metallicaInConcert.html"
   },
   {
     _id: 8,
@@ -97,7 +105,8 @@ const events=[
     "place":"Room A",
     "capacity":138000,
     "assistance":110300,
-    "price":250
+    "price":250,
+    "detail":"electronicFest.html"
     },
   {
     _id: 9,
@@ -109,7 +118,8 @@ const events=[
     "place":"Soccer field",
     "capacity":30000,
     "assistance":25698,
-    "price":3
+    "price":3,
+    "detail":"kForLife.html"
   },
   {
     _id: 10,
@@ -122,6 +132,7 @@ const events=[
     "capacity":3000000,
     "assistance":2569800,
     "price":3
+    ,"detail":"kNy.html"
     },
   {
     _id: 11,
@@ -134,6 +145,7 @@ const events=[
     "capacity":150000,
     "estimate":123286,
     "price":1
+    ,"detail":"schoolBookFair.html"
   },
   {
     _id: 12,
@@ -145,7 +157,8 @@ const events=[
     "place":"Room D6",
     "capacity":130000,
     "assistance":90000,
-    "price":100
+    "price":100,
+    "detail":"justForYourKitchen.html"
   },
   {
     _id: 13,
@@ -157,7 +170,8 @@ const events=[
     "place":"Room D1",
     "capacity":11000,
     "assistance":9300,
-    "price":225
+    "price":225,
+    "detail":"batman.html"
   },
   {
     _id: 14,
@@ -169,10 +183,11 @@ const events=[
     "place":"Room D1",
     "capacity":9000,
     "estimate":9000,
-    "price":250
+    "price":250,
+    "detail":"avengers.html"
   }
-] */
-let containerEventPast=document.getElementById("card")
+]
+let containerEventPast=document.getElementById("cardPastEvents")
 
 filterPastEvents(events)
 
@@ -189,7 +204,7 @@ function filterPastEvents(array){
           <h4 class="mi_card__content--title">${evento.name}</h4>
           <p class="mi_card__content--description">${evento.description}</p>
           <span class="mi_card__content--price">$ ${evento.price}</span>
-          <a href="#" class="mi_card__content--btn">Go somewhere</a>
+          <a href="${evento.detail}" class="mi_card__content--btn">Go somewhere</a>
         </div>
       </div>
     </div>`
