@@ -4,7 +4,7 @@ var data = {
 
 const events=[
   {
-    _id: 1,
+    id: 1,
     "image":"https://i.postimg.cc/Fs03hQDt/Collectivities-Party.jpg",
     "name":"Collectivities Party",
     "date":"2021-12-12",
@@ -17,7 +17,7 @@ const events=[
     "detail":"assets/views/collectivitiesParty.html"
   },
   {
-    _id: 2,
+    id: 2,
     "image":"https://i.postimg.cc/ZmD3Xf57/Korean-style.jpg",
     "name":"Korean style",
     "date":"2022-08-12",
@@ -30,7 +30,7 @@ const events=[
     "detail":"assets/views/koreanStyle.html"
   },
   {
-    _id: 3,
+    id: 3,
     "image":"https://i.postimg.cc/GmHRkbNV/Jurassic-Park.jpg",
     "name":"Jurassic Park",
     "date":"2021-11-02",
@@ -43,7 +43,7 @@ const events=[
     "detail":"assets/views/jurassicpark.html"
   },
   {
-    _id: 4,
+    id: 4,
     "image":"https://i.postimg.cc/c4C2zXm8/Parisian-Museum.jpg",
     "name":"Parisian Museum",
     "date":"2022-11-02",
@@ -56,7 +56,7 @@ const events=[
     "detail":"assets/views/parisianMuseum.html"
   },
   {
-    _id: 5,
+    id: 5,
     "image":"https://i.postimg.cc/KYD0jMf2/comicon.jpg",
     "name":"Comicon",
     "date":"2021-02-12",
@@ -69,7 +69,7 @@ const events=[
     "detail":"assets/views/comicon.html"
   },
   {
-    _id: 6,
+    id: 6,
     "image":"https://i.postimg.cc/RZ9fH4Pr/halloween.jpg",
     "name":"Halloween Night",
     "date":"2022-02-12",
@@ -82,7 +82,7 @@ const events=[
     "detail":"assets/views/halloweenNight.html"
   },
   {
-    _id: 7,
+    id: 7,
     "image":"https://i.postimg.cc/PrMJ0ZMc/Metallica-in-concert.jpg",
     "name":"Metallica in concert",
     "date":"2022-01-22",
@@ -95,7 +95,7 @@ const events=[
     "detail":"assets/views/metallicaInConcert.html"
   },
   {
-    _id: 8,
+    id: 8,
     "image":"https://i.postimg.cc/KvsSK8cj/Electronic-Fest.jpg",
     "name":"Electronic Fest",
     "date":"2021-01-22",
@@ -108,7 +108,7 @@ const events=[
     "detail":"assets/views/electronicFest.html"
     },
   {
-    _id: 9,
+    id: 9,
     "image":"https://i.postimg.cc/fyLqZY9K/10-K-for-life.jpg",
     "name":"10K for life",
     "date":"2021-03-01",
@@ -121,7 +121,7 @@ const events=[
     "detail":"assets/views/kForLife.html"
   },
   {
-    _id: 10,
+    id: 10,
     "image":"https://i.postimg.cc/zv67r65z/15kny.jpg",
     "name":"15K NY",
     "date":"2022-03-01",
@@ -134,7 +134,7 @@ const events=[
     ,"detail":"assets/views/kNy.html"
     },
   {
-    _id: 11,
+    id: 11,
     "image":"https://i.postimg.cc/Sst763n6/book1.jpg",
     "name":"School's book fair",
     "date":"2022-10-15",
@@ -147,7 +147,7 @@ const events=[
     ,"detail":"assets/views/schoolBookFair.html"
   },
   {
-    _id: 12,
+    id: 12,
     "image":"https://i.postimg.cc/05FhxHVK/book4.jpg",
     "name":"Just for your kitchen",
     "date":"2021-11-09",
@@ -160,7 +160,7 @@ const events=[
     "detail":"assets/views/justForYourKitchen.html"
   },
   {
-    _id: 13,
+    id: 13,
     "image":"https://i.postimg.cc/vH52y81C/cinema4.jpg",
     "name":"Batman",
     "date":"2021-03-11",
@@ -173,7 +173,7 @@ const events=[
     "detail":"assets/views/batman.html"
   },
   {
-    _id: 14,
+    id: 14,
     "image":"https://i.postimg.cc/T3C92KTN/scale.jpg",
     "name":"Avengers",
     "date":"2022-10-15",
@@ -189,19 +189,18 @@ const events=[
 
 //elementos
 let cardContainer=document.getElementById("card")
-
-
-//uso de funciones
-
-newCards(events)
-
-
+let input =document.getElementById("input")
+let containerCheckbox=document.getElementById("checkbox")
 
 
 /* funciones */
 function newCards(array){
+  if(array.length==0){
+    cardContainer.innerHTML=`<h3>No hay elementos disponibles</3>`
+    return
+  }
   let cards=''
-  for(evento of array){
+  array.forEach(evento=>{
     cards += `<div class="col-12 col-xl-3 col-lg-4 col-md-6 col-sm-6   mb-4">
     <div class="mi_card">
       <div class="mi_card__img">
@@ -209,12 +208,44 @@ function newCards(array){
       </div>
       <div class="mi_card__content">
         <h4 class="mi_card__content--title">${evento.name}</h4>
+        <span class="badge bg-secondary">${evento.category}</span>
         <p class="mi_card__content--description">${evento.description}</p>
         <span class="mi_card__content--price">$ ${evento.price}</span>
-        <a href="${evento.detail}" class="mi_card__content--btn">Go somewhere</a>
+        <a href="./assets/views/details.html?id=${evento.id}" class="mi_card__content--btn">Go somewhere</a>
       </div>
     </div>
   </div>`
-  }
+  })
   cardContainer.innerHTML=cards
 }
+
+function filtrarText(array, text){
+ let filtrados= array.filter(elemento=>elemento.name.toLowerCase().includes(text.toLowerCase()))
+ return filtrados
+}
+
+function chexboxCategories(array){
+ let arrayCategories = array.map(elemento => elemento.category)
+ let setCategories= new Set(arrayCategories)
+
+ let checks=''
+ setCategories.forEach(elemento=>{
+  checks+=`<div>
+  <input class="ms-2" type="checkbox" name="checkbox" id="${elemento}"value="${elemento}">
+  <label  for="${elemento}">${elemento}</label>
+</div>`
+ })
+ containerCheckbox.innerHTML=checks
+}
+
+
+
+
+//uso de funciones y eventos
+input.addEventListener('input',()=>{
+  let filtrados= filtrarText(events, input.value)
+  newCards(filtrados)
+})
+
+newCards(events)
+chexboxCategories(events)
